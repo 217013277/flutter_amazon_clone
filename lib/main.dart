@@ -6,7 +6,7 @@ import 'package:flutter_amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:flutter_amazon_clone/features/home/screens/home_screen.dart';
 import 'package:flutter_amazon_clone/provider/user_provider.dart';
 import 'package:flutter_amazon_clone/router.dart';
-import 'package:flutter_amazon_clone/services/auth_service.dart';
+import 'package:flutter_amazon_clone/features/auth/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
