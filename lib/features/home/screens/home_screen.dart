@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants/global_variables.dart';
 import '../widgets/address_box.dart';
 import '../widgets/carousel_image.dart';
+import '../widgets/deal_of_day.dart';
 import '../widgets/top_categories.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -84,15 +85,18 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: const [
-          AddressBox(),
-          SizedBox(
-            height: 10,
-          ),
-          TopCategories(),
-          CarouselImage(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [
+            AddressBox(),
+            SizedBox(
+              height: 10,
+            ),
+            TopCategories(),
+            CarouselImage(),
+            DealOfDay(),
+          ],
+        ),
       ),
     );
   }
