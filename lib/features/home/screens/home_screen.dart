@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_amazon_clone/provider/user_provider.dart';
-import 'package:provider/provider.dart';
 
 import '../../../constants/global_variables.dart';
 import '../widgets/address_box.dart';
+import '../widgets/carousel_image.dart';
+import '../widgets/top_categories.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
@@ -11,7 +11,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
@@ -88,6 +87,11 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: const [
           AddressBox(),
+          SizedBox(
+            height: 10,
+          ),
+          TopCategories(),
+          CarouselImage(),
         ],
       ),
     );
