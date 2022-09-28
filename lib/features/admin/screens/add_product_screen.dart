@@ -29,7 +29,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     productNameController.dispose();
     descriptionController.dispose();
