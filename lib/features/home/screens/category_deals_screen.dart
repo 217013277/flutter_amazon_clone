@@ -23,7 +23,6 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
   final HomeServices homeServices = HomeServices();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchCategoryProducts();
   }
