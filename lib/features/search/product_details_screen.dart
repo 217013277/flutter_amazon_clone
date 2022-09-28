@@ -141,7 +141,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               padding: const EdgeInsets.all(8),
               child: RichText(
                 text: TextSpan(
-                  text: "Deal Price:",
+                  text: "Deal Price: ",
                   style: const TextStyle(
                       fontSize: 16,
                       color: Colors.black,
