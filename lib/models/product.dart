@@ -30,7 +30,7 @@ class Product {
       "name": name,
       "description": description,
       "quantity": quantity,
-      "immages": images,
+      "images": images,
       "category": category,
       "price": price,
       // "userId": userId,

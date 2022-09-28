@@ -90,9 +90,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 images.isNotEmpty
                     ? CarouselSlider(
                         items: images.map(
@@ -106,8 +104,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
                             );
                           },
                         ).toList(),
-                        options:
-                            CarouselOptions(viewportFraction: 1, height: 160))
+                        options: CarouselOptions(
+                          viewportFraction: 1,
+                          height: 200,
+                        ),
+                      )
                     : GestureDetector(
                         onTap: selectImages,
                         child: DottedBorder(
