@@ -1,17 +1,17 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_amazon_clone/constants/error_handling.dart';
 import 'package:flutter_amazon_clone/constants/utils.dart';
-import 'package:flutter_amazon_clone/features/admin/screens/admin_screen.dart';
 import 'package:flutter_amazon_clone/models/product.dart';
-import 'package:flutter_amazon_clone/provider/user_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 import '../../../constants/config.dart';
 import '../../../constants/global_variables.dart';
+import '../../../provider/user_provider.dart';
 
 class AdminServices {
   void sellProduct({
@@ -62,5 +62,36 @@ class AdminServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+  }
+
+  //get all products
+  Future<List<Product>> fetchAllProducts(BuildContext context) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<Product> productList = [];
+    try {
+      http.Response res = await http
+          .get(Uri.parse("$uri/admin/get-products"), headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'x-auth-token': userProvider.user.token,
+      });
+
+      httpErrorHandle(
+          response: res,
+          context: context,
+          onSuccess: () {
+            for (int i = 0; i < jsonDecode(res.body).length; i++) {
+              productList.add(
+                Product.fromJson(
+                  jsonEncode(
+                    jsonDecode(res.body)[i],
+                  ),
+                ),
+              );
+            }
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return productList;
   }
 }

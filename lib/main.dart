@@ -3,7 +3,6 @@ import 'package:flutter_amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:flutter_amazon_clone/constants/global_variables.dart';
 import 'package:flutter_amazon_clone/features/admin/screens/admin_screen.dart';
 import 'package:flutter_amazon_clone/features/auth/screens/auth_screen.dart';
-import 'package:flutter_amazon_clone/features/home/screens/home_screen.dart';
 import 'package:flutter_amazon_clone/provider/user_provider.dart';
 import 'package:flutter_amazon_clone/router.dart';
 import 'package:flutter_amazon_clone/features/auth/services/auth_service.dart';
