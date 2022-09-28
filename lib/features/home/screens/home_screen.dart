@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/global_variables.dart';
+import '../../search/screens/search_screen.dart';
 import '../widgets/address_box.dart';
 import '../widgets/carousel_image.dart';
 import '../widgets/deal_of_day.dart';
 import '../widgets/top_categories.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  void navigateToScreenScreen(String query) {
+    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +42,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
                     child: TextFormField(
+                      onFieldSubmitted: navigateToScreenScreen,
                       decoration: InputDecoration(
                           prefixIcon: InkWell(
                             onTap: () {},

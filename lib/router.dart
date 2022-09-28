@@ -4,6 +4,7 @@ import 'package:flutter_amazon_clone/features/admin/screens/add_product_screen.d
 import 'package:flutter_amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:flutter_amazon_clone/features/home/screens/category_deals_screen.dart';
 import 'package:flutter_amazon_clone/features/home/screens/home_screen.dart';
+import 'package:flutter_amazon_clone/features/search/screens/search_screen.dart';
 
 Route<dynamic> generatedRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -33,6 +34,14 @@ Route<dynamic> generatedRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => CategoryDealsScreen(
           category: category,
+        ),
+      );
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
         ),
       );
     default:
