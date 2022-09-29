@@ -65,10 +65,13 @@ class AuthService {
       httpErrorHandle(
         response: res,
         context: context,
-        onSuccess: () async {
-          SharedPreferences prefs = await SharedPreferences.getInstance();
+        onSuccess: () {
+          () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            await prefs.setString(
+                'x-auth-token', jsonDecode(res.body)['token']);
+          };
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
               context, BottomBar.routeName, (route) => false);
         },
