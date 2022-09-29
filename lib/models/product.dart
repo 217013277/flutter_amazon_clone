@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '../models/rating.dart';
+
 class Product {
   final String name;
   final String description;
@@ -8,28 +10,31 @@ class Product {
   final String category;
   final double price;
   final String? id;
+  final List<Rating>? rating;
   // final String? userId;
 
-  Product({
-    required this.name,
-    required this.description,
-    required this.quantity,
-    required this.images,
-    required this.category,
-    required this.price,
-    this.id,
-    // this.userId
-  });
+  Product(
+      {required this.name,
+      required this.description,
+      required this.quantity,
+      required this.images,
+      required this.category,
+      required this.price,
+      this.id,
+      this.rating
+      // this.userId
+      });
 
   Map<String, dynamic> toMap() {
     return {
-      "id": id,
       "name": name,
       "description": description,
       "quantity": quantity,
       "images": images,
       "category": category,
       "price": price,
+      "id": id,
+      "rating": rating,
       // "userId": userId,
     };
   }
@@ -44,6 +49,13 @@ class Product {
       images: List<String>.from(map["images"]),
       category: map["category"] ?? "",
       price: map["price"].toDouble() ?? 0.0,
+      rating: map["ratings"] == null
+          ? null
+          : List<Rating>.from(
+              map["ratings"]?.map(
+                (x) => Rating.fromMap(x),
+              ),
+            ),
     );
   }
 

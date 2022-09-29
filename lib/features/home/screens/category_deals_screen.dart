@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_amazon_clone/common/widgets/loader.dart';
 import 'package:flutter_amazon_clone/features/home/services/home_services.dart';
-import 'package:flutter_amazon_clone/features/search/product_details_screen.dart';
 
 import '../../../constants/global_variables.dart';
 import '../../../models/product.dart';
+import '../../product_details/screens/product_details_screen.dart';
 
 class CategoryDealsScreen extends StatefulWidget {
   static const String routeName = '/category-deals';
