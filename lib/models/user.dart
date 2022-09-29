@@ -8,15 +8,18 @@ class User {
   final String address;
   final String type;
   final String token;
+  final List<dynamic> cart;
 
-  User(
-      {required this.id,
-      required this.name,
-      required this.email,
-      required this.password,
-      required this.address,
-      required this.type,
-      required this.token});
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.address,
+    required this.type,
+    required this.token,
+    required this.cart,
+  });
 
   Map<String, dynamic> toMap() {
     return {
@@ -26,7 +29,8 @@ class User {
       'password': password,
       'address': address,
       'type': type,
-      'token': token
+      'token': token,
+      'cart': cart,
     };
   }
 
@@ -39,6 +43,11 @@ class User {
       address: map['address'] ?? '',
       type: map['type'] ?? '',
       token: map['token'] ?? '',
+      cart: List<Map<String, dynamic>>.from(
+        map['cart']?.map(
+          (x) => Map<String, dynamic>.from(x),
+        ),
+      ),
     );
   }
 
@@ -64,6 +73,7 @@ class User {
       address: address ?? this.address,
       type: type ?? this.type,
       token: token ?? this.token,
+      cart: cart ?? this.cart,
     );
   }
 }
