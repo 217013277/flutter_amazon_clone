@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_amazon_clone/common/widgets/custom_button.dart';
+import 'package:flutter_amazon_clone/features/admin/services/admin_services.dart';
+import 'package:flutter_amazon_clone/provider/user_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants/global_variables.dart';
 import '../../../models/order.dart';
@@ -16,6 +20,7 @@ class OrderDetailsScreen extends StatefulWidget {
 
 class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   int currentStep = 0;
+  final AdminServices _adminServices = AdminServices();
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
@@ -26,8 +31,21 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     currentStep = widget.order.status;
   }
 
+  void changeOrderStatus(int status) {
+    _adminServices.changeOrderStatus(
+        context: context,
+        status: status += 1,
+        order: widget.order,
+        onSuccess: () {
+          setState(() {
+            currentStep += 1;
+          });
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
@@ -188,7 +206,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 child: Stepper(
                   currentStep: currentStep,
                   controlsBuilder: (context, details) {
-                    return const SizedBox();
+                    if (user.type == "admin") {
+                      return CustomButton(
+                          text: "Done",
+                          onTap: () => changeOrderStatus(details.currentStep));
+                    }
+                    return const SizedBox.shrink();
                   },
                   steps: [
                     Step(
