@@ -3,7 +3,7 @@ import 'package:flutter_amazon_clone/common/widgets/loader.dart';
 import 'package:flutter_amazon_clone/constants/global_variables.dart';
 import 'package:flutter_amazon_clone/features/account/services/account_services.dart';
 import 'package:flutter_amazon_clone/features/account/widgets/single_product.dart';
-import 'package:flutter_amazon_clone/features/order_details/screens/order_details.dart';
+import 'package:flutter_amazon_clone/features/order_details/screens/order_details_screen.dart';
 
 import '../../../models/order.dart';
 
