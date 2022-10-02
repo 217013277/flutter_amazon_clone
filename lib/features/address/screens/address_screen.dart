@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_amazon_clone/common/widgets/custom_button.dart';
 import 'package:flutter_amazon_clone/constants/utils.dart';
