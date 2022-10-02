@@ -205,9 +205,7 @@ class AdminServices {
               Sales("Fashion", response["fashionEarnings"]),
             ];
           });
-    } catch (e, stacktrace) {
-      print(e);
-      print(stacktrace);
+    } catch (e) {
       showSnackBar(context, "getEarnings error: ${e.toString()}");
     }
     return {"sales": sales, "totalEarnings": totalEarnings};
