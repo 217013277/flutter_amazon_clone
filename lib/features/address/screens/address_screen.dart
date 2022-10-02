@@ -134,6 +134,8 @@ class _AddressScreenState extends State<AddressScreen> {
       address: addressToBeUsed,
       totalSum: double.parse(widget.totalAmount),
     );
+
+    Navigator.pop(context);
   }
 
   @override
