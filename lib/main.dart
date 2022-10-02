@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
         ),
+        useMaterial3: true,
       ),
       onGenerateRoute: (settings) => generatedRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
