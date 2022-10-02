@@ -117,11 +117,13 @@ class _CartScreenState extends State<CartScreen> {
           const CartSubtotal(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CustomButton(
-              text: "Proceed to Buy (${user.cart.length} Items)",
-              onTap: () => navigateToAddressScreen(sum),
-              color: Colors.yellow[600],
-            ),
+            child: user.cart.isEmpty
+                ? const Text("Your cart is empty")
+                : CustomButton(
+                    text: "Proceed to Buy (${user.cart.length} Items)",
+                    onTap: () => navigateToAddressScreen(sum),
+                    color: Colors.yellow[600],
+                  ),
           ),
           const SizedBox(height: 15),
           Container(
