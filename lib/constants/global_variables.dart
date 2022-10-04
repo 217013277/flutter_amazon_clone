@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 // import 'config.dart';
 
-String ip = const String.fromEnvironment("SERVER_HOST");
+String ip = const String.fromEnvironment("BACKEND_SERVER",
+    defaultValue: "amazon-clone-server-yiu.herokuapp.com");
 
 String uri = 'http://$ip:3000';
 
