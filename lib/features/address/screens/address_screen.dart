@@ -112,6 +112,8 @@ class _AddressScreenState extends State<AddressScreen> {
       if (_addressFormKey.currentState!.validate()) {
         addressToBeUsed =
             "${_flatBuildingController.text}, ${_areaController.text}, ${_cityController.text} - ${_pincodeController.text}";
+        _addressServices.saveUserAddress(
+            context: context, address: addressToBeUsed);
       } else {
         throw Exception('Please enter all the values!');
       }
@@ -122,20 +124,19 @@ class _AddressScreenState extends State<AddressScreen> {
       return;
     }
 
-    if (Provider.of<UserProvider>(context, listen: false)
-        .user
-        .address
-        .isEmpty) {
-      _addressServices.saveUserAddress(
-          context: context, address: addressToBeUsed);
-    }
+    // if (Provider.of<UserProvider>(context, listen: false)
+    //     .user
+    //     .address
+    //     .isEmpty) {
+    //   _addressServices.saveUserAddress(
+    //       context: context, address: addressToBeUsed);
+    // }
+
     _addressServices.placeOrder(
       context: context,
       address: addressToBeUsed,
       totalSum: double.parse(widget.totalAmount),
     );
-
-    Navigator.pop(context);
   }
 
   @override
