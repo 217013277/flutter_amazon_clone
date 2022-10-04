@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // import 'config.dart';
 
-String ip = const String.fromEnvironment("ip");
+String ip = const String.fromEnvironment("SERVER_HOST");
 
 String uri = 'http://$ip:3000';
 
