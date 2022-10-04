@@ -26,7 +26,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController _signInPasswordController =
       TextEditingController();
 
-  final String ip = const String.fromEnvironment("ip");
+  final String ip = const String.fromEnvironment("BACKEND_SERVER");
 
   @override
   void dispose() {
