@@ -26,6 +26,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController _signInPasswordController =
       TextEditingController();
 
+  final String ip = const String.fromEnvironment("ip");
+
   @override
   void dispose() {
     super.dispose();
@@ -60,6 +62,7 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text("ip: $ip"),
               const Text(
                 "Welcome",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),

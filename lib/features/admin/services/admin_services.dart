@@ -11,7 +11,7 @@ import 'package:flutter_amazon_clone/models/product.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-import '../../../constants/config.dart';
+// import '../../../constants/config.dart';
 import '../../../constants/global_variables.dart';
 import '../../../provider/user_provider.dart';
 
@@ -26,6 +26,8 @@ class AdminServices {
     required List<File> images,
   }) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
+    const String cloudName = String.fromEnvironment("cloudName");
+    const String uploadPreset = String.fromEnvironment("uploadPreset");
     try {
       final cloudinary = CloudinaryPublic(cloudName, uploadPreset);
       List<String> imageUrls = [];
